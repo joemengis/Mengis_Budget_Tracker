@@ -1,6 +1,5 @@
-const mongoose = require("mongoose");
-// let db;
-// const request = indexedDB.open("budget", 3);
+let db;
+
 
 window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 
@@ -20,7 +19,7 @@ request.onsuccess = ({target}) => {
     db = target.result;
 
     if (navigator.onLine) {
-        saveRecord();
+        // saveRecord();
         checkDatabase();
         
     }
@@ -31,14 +30,14 @@ request.onerror = function(evt) {
 };
 
 function saveRecord(record) {
-    const transaction = db.transaction(["pending"], "readWrite");
+    const transaction = db.transaction(["pending"], "readwrite");
     const store = transaction.objectStore("pending");
 
     store.add(record);
 }
 
 function checkDatabase() {
-    const transaction = db.transaction(["pending"], "readWrite");
+    const transaction = db.transaction(["pending"], "readwrite");
     const store = transaction.objectStore("pending");
     const getAll = store.getAll();
 
@@ -54,8 +53,8 @@ function checkDatabase() {
             }).then(response => {
                 return response.json();
             }).then(() => {
-                const transaction = db.transaction(["pending"], "readWrite");
-                const store = transaction.ObjectStore("pending");
+                const transaction = db.transaction(["pending"], "readwrite");
+                const store = transaction.objectStore("pending");
                 store.clear();
             });
         }
