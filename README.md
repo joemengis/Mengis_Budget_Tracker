@@ -14,6 +14,7 @@ https://tranquil-waters-28312.herokuapp.com/
 
 ## Screenshots
 
+![Screen Shot 2020-09-22 at 10 45 34 AM](https://user-images.githubusercontent.com/62780709/93918226-e38fe480-fcc0-11ea-9f47-f40cbd81eee1.png)
 
 
 ## Tech Used
